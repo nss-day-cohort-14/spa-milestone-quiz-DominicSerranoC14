@@ -6,18 +6,32 @@
 
 var CarLot = (function () {
   var inventory = [];
+  var containerDiv = document.getElementById('container');
 
   return {
     getInventory: function () {
-
+      return inventory;
     },
+
+    //method that loads and stores the XHR request in an array
     loadInventory: function (callback) {
+      //create new XHR request
       var inventoryLoader = new XMLHttpRequest();
 
-      inventoryLoader.addEventListener("load", function () {
+      //get request/object
+      inventoryLoader.open("GET", "inventory.json");
 
+      //send request
+      inventoryLoader.send();
+
+      inventoryLoader.addEventListener("load", function () {
+        //store and parse the responseText from the XHR request
+        var data = JSON.parse(event.target.responseText);
+
+        inventory.push(data);
+        console.log(inventory);
       });
     }
-  };
+  };//end return and initializing object
 
 })();
