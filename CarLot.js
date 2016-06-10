@@ -7,6 +7,7 @@
 var CarLot = (function () {
   var inventory = [];
   var containerDiv = document.getElementById('container');
+  var outputDiv = document.getElementById('row');
 
   return {
     getInventory: function () {
@@ -27,33 +28,41 @@ var CarLot = (function () {
       inventoryLoader.addEventListener("load", function () {
         //store and parse the responseText from the XHR request
         var data = JSON.parse(event.target.responseText);
-
         inventory.push(data);
+
+        callback();
       });
     },//end loadInventory method
 
     //method that will print the loaded XHR request
-    buildInventory: function (callback) {
-
+    buildInventory: function () {
+      console.log(CarLot.getInventory());
+      console.log(inventory[0].cars)
       //loop that loops through inventory and writes each car
       //object to page
-      for ( let i = 0; i < inventory.length; i++ ) {
-        console.log(inventory[i].cars);
-        for (let j = 0; inventory[i].cars[j]; j++) {
-          var cars = inventory[i].cars[j];          // for ( key in cars ) {
-          cars.make;
-          cars.model;
-          cars.year;
-          cars.price;
-          cars.color;
-          cars.purchased;
-          cars.description;
-        }
-        }
-      };//end for loop
+        // for (let i = 0; inventory[0].cars.length; i++) {
+          for(let j = 0; inventory[i].cars[j].length; j++) {
+          let list = inventory[i].cars[j];
+          let htmlstring = "";
+          htmlstring += `<div class="cards">`;
+          htmlstring += `<p>${list.make}:  `;
+          htmlstring += `${list.model}</p>`;
+          htmlstring += `<p>${list.year}  `;
+          htmlstring += `${list.price}  `;
+          htmlstring += `${list.color}</p>`;
+          htmlstring += `<input type="checkbox" checked disabled>`;
+          htmlstring += `${list.purchased}</input>`;
+          htmlstring += `<p>${list.description}</p>`;
+          htmlstring += `</div>`;
+          outputDiv.innerHTML = htmlstring;
+          console.log(htmlstring);
+          console.log(outputDiv);
+        };//end second for loop
+
+      };//end first for loop
 
     }//end buildInventory method
 
-  };//end return and initializing object
+  }//end return and initializing object
 
 })();
