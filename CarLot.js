@@ -29,9 +29,31 @@ var CarLot = (function () {
         var data = JSON.parse(event.target.responseText);
 
         inventory.push(data);
-        console.log(inventory);
       });
-    }
+    },//end loadInventory method
+
+    //method that will print the loaded XHR request
+    buildInventory: function (callback) {
+
+      //loop that loops through inventory and writes each car
+      //object to page
+      for ( let i = 0; i < inventory.length; i++ ) {
+        console.log(inventory[i].cars);
+        for (let j = 0; inventory[i].cars[j]; j++) {
+          var cars = inventory[i].cars[j];          // for ( key in cars ) {
+          cars.make;
+          cars.model;
+          cars.year;
+          cars.price;
+          cars.color;
+          cars.purchased;
+          cars.description;
+        }
+        }
+      };//end for loop
+
+    }//end buildInventory method
+
   };//end return and initializing object
 
 })();
