@@ -1,9 +1,15 @@
 <!--
-Loop over your array of cars and build up an HTML
-string to build a card for each car. Also, use
-Bootstrap to create rows. Each row should contain
-3 columns. Make sure you have a parent element
-with a class of container. -->
+Make sure you display all properties of the car in the DOM.
+Basic styling is up to you.
+
+Put a border around the car information that matches the
+color of the car. To make this easier, set the color property
+value to an existing named CSS color.
+
+When you click on one of the car elements, change the
+width of the border to a higher value, and change the
+background color to any other color of your choosing.
+ -->
 
 <!DOCTYPE html>
 <html>
@@ -13,15 +19,23 @@ with a class of container. -->
     <link rel="stylesheet" href="quiz.css">
     <title></title>
   </head>
+
+  <div class="contanier nav-bar">
+    <div class="row">
+      <input type="text" class="col-md-4 nav-bar-el" placeholder="Text input">
+      <button class="btn btn-default btn-sm col-md-2 nav-bar-el" type="submit">Button</button>
+    </div>
+  </div>
+
   <body>
 
-    <div id="container">
-      <div id="row"></div>
+    <div id="main" class="container">
+      <div id="output" class="row"></div>
     </div>
 
   </body>
   <script src="CarLot.js"></script>
+  <script src="quiz.js"></script>
   <script src="activateEvents.js"></script>
   <script src="uiBorder.js"></script>
-  <script src="quiz.js"></script>
 </html>

@@ -6,8 +6,8 @@
 
 var CarLot = (function () {
   var inventory = [];
-  var containerDiv = document.getElementById('container');
-  var outputDiv = document.getElementById('row');
+  var containerDiv = document.getElementById('main');
+  var outputDiv = document.getElementById('output');
 
   return {
     getInventory: function () {
@@ -29,39 +29,39 @@ var CarLot = (function () {
         //store and parse the responseText from the XHR request
         var data = JSON.parse(event.target.responseText);
         inventory.push(data);
-
-        callback();
+        populatePage(callback);
       });
     },//end loadInventory method
 
-    //method that will print the loaded XHR request
+    //method that will print the loaded XHR request to page
     buildInventory: function () {
-      console.log(CarLot.getInventory());
-      console.log(inventory[0].cars)
       //loop that loops through inventory and writes each car
       //object to page
-        // for (let i = 0; inventory[0].cars.length; i++) {
-          for(let j = 0; inventory[i].cars[j].length; j++) {
-          let list = inventory[i].cars[j];
-          let htmlstring = "";
-          htmlstring += `<div class="cards">`;
+      var htmlstring = "";
+      var id = 0;
+        for (let i = 0; i < inventory[0].cars.length; i++) {
+          var list = inventory[0].cars[i];
+          htmlstring += `<div id="card--${id}" class="col-md-3 cards">`;
           htmlstring += `<p>${list.make}:  `;
           htmlstring += `${list.model}</p>`;
-          htmlstring += `<p>${list.year}  `;
-          htmlstring += `${list.price}  `;
-          htmlstring += `${list.color}</p>`;
-          htmlstring += `<input type="checkbox" checked disabled>`;
-          htmlstring += `${list.purchased}</input>`;
+          htmlstring += `<p>${list.year}</p>  `;
+          htmlstring += `<p>${list.price}</p>  `;
+          htmlstring += `<p id="color--${id}">${list.color}</p>`;
+          htmlstring += `<input type="checkbox" disabled>`;
+          htmlstring += `Purchased: ${list.purchased}</input>`;
           htmlstring += `<p>${list.description}</p>`;
           htmlstring += `</div>`;
+          id++;
           outputDiv.innerHTML = htmlstring;
-          console.log(htmlstring);
-          console.log(outputDiv);
         };//end second for loop
 
-      };//end first for loop
+
+        //call functions to add event listeners for cards
+        CarLot.activateEvents();
 
     }//end buildInventory method
+
+
 
   }//end return and initializing object
 

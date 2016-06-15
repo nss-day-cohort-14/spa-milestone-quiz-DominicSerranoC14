@@ -1,0 +1,38 @@
+/*******************************
+          Base Styles
+*******************************/
+
+.nav-bar {
+  background: orange;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.nav-bar-el {
+  margin: 0 2rem;
+  height: 3rem;
+}
+
+
+/*******************************
+      Car Card Styles
+*******************************/
+
+#output {
+  width: 100%;
+}
+
+.cards {
+  border: 1px solid black;
+  margin: 0 3rem;
+  background: linear-gradient(135deg, black, white);
+  color: white;
+}
+
+
+/*******  ClassList styles ************/
+
+.highlight-card {
+  border-width: thick;
+  background: lightgray;
+}
