@@ -55,10 +55,30 @@ var CarLot = (function () {
           outputDiv.innerHTML = htmlstring;
         };//end second for loop
 
-    }//end buildInventory method
+        //set border color with function call
+        CarLot.setBorder();
+
+    },//end buildInventory method
+
+    //function that sets the border of the car cards to the color that
+    //is selected in the json file
+    setBorder: function() {
+
+      //create a reference to each card element
+      var cars = document.getElementsByClassName('cards');
+
+      //create a loop to grab each card element
+      for (let i = 0; i < cars.length; i++) {
+
+        var carCards = document.getElementById(`card--${i}`);
+        var carColor = document.getElementById(`color--${i}`).innerText;
+        carCards.style.borderColor = carColor;
+
+      }//end for loop
+
+    }//end of setBorder function
 
 
-
-  }//end return and initializing object
+  }//////////////////end return and initializing object
 
 })();

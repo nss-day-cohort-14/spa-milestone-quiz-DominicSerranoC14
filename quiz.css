@@ -29,7 +29,8 @@
 
 .cards {
   border: 1px solid black;
-  margin: 0 3rem;
+  margin: 1.5rem;
+  box-sizing: border-box;
   background: linear-gradient(135deg, black, white);
   color: white;
 }
@@ -38,7 +39,7 @@
 /*******  ClassList styles ************/
 
 .highlight-card {
-  border-width: thick;
+  border-width: medium;
   background: lightgray;
 }
 

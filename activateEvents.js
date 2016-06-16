@@ -48,7 +48,7 @@ var CarLot = (function(carlotCars) {
     //when the user types more than a certain number of character
     //text input is replaced with a textarea
     userInput.addEventListener('keyup', function() {
-      if ( userInput.value.length > 10 ) {
+      if ( userInput.value.length > 40 ) {
 
         var userInputText = userInput.value;
 
@@ -60,7 +60,7 @@ var CarLot = (function(carlotCars) {
 
         //pass userTextArea.value to card edit if character
         //limit is reached
-        
+
       };
     })//end event listener for keyup on character limit
   }//end carlotCars.expandBox
