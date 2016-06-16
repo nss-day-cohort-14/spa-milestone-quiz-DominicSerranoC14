@@ -7,7 +7,7 @@ function populatePage () {
 
   CarLot.userInputListener();
 
-  CarLot.changeDescription();
+  CarLot.changeDescription(CarLot.selectDescription());
 
 }
 

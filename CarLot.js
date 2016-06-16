@@ -33,6 +33,7 @@ var CarLot = (function () {
       });
     },//end loadInventory method
 
+
     //method that will print the loaded XHR request to page
     buildInventory: function () {
       //loop that loops through inventory and writes each car
@@ -55,7 +56,6 @@ var CarLot = (function () {
           id++;
           outputDiv.innerHTML = htmlstring;
         };//end for loop
-
         //set border color with function call
         CarLot.setBorder();
 
@@ -84,14 +84,12 @@ var CarLot = (function () {
 
       //create a loop to grab each card element
       for (let i = 0; i < cars.length; i++) {
-
         var carCards = document.getElementById(`card--${i}`);
         var carColor = document.getElementById(`color--${i}`).innerText;
         carCards.style.borderColor = carColor;
-
       }//end for loop
-
     }//end of setBorder function
+    
 
 
   }//////////////////end return and initializing object

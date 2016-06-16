@@ -12,6 +12,8 @@ var CarLot = (function(carlotCars) {
   var userInput = document.getElementById('user-input');
 
 
+  var inputChange = "";
+
   //create a function to add all event listeners to elements
   carlotCars.activateEvents = function() {
 
@@ -36,57 +38,36 @@ var CarLot = (function(carlotCars) {
   },//end carlotCars.userInputListener function
 
 
-  carlotCars.expandBox = function() {
+  //create a function to grab description tag from a selected element
+  carlotCars.selectDescription = function() {
 
-    //creates a text area element
-    var userTextArea = document.createElement('textarea');
-    //defines width and hight of textarea and centers it
-    userTextArea.setAttribute("rows", 5);
-    userTextArea.setAttribute("cols", 60);
-    userTextArea.classList.add('centerTextarea');
+      for ( var i = 0; i < cars.length; i++) {
 
-    //when the user types more than a certain number of character
-    //text input is replaced with a textarea
-    userInput.addEventListener('keyup', function() {
-      if ( userInput.value.length > 40 ) {
+        cars[i].addEventListener('click', function() {
+        //resets input text to an empty string once a new div is selected
+        userInput.value ="";
+        //grabs selected div and parses the unique id number
+        var description = event.currentTarget;
+        var descriptionID = description.id.split('--')[1];
+        //selects the description element with corresponding id number
+        inputChange = document.getElementById(`description--${descriptionID}`);
 
-        var userInputText = userInput.value;
+      });//end for event listeners
+    };//end for loop
 
-        userTextArea.innerText = userInputText;
-
-        userInput.parentNode.replaceChild(userTextArea, userInput);
-
-        userTextArea.setAttribute('autofocus', 'true');
-
-        //pass userTextArea.value to card edit if character
-        //limit is reached
-
-      };
-    })//end event listener for keyup on character limit
-  }//end carlotCars.expandBox
+  },//end carlotCars.selectDescription function
 
 
+  //create function to sync input to description target
   carlotCars.changeDescription = function() {
 
-    for ( var i = 0; i < cars.length; i++) {
-      cars[i].addEventListener('click', function() {
+    console.log(inputChange);
 
-      var description = event.currentTarget;
-      console.log("currentTarget",description);
+    userInput.addEventListener("keyup", function() {
+      inputChange.innerHTML = userInput.value;
+    })
 
-      var descriptionID = description.id.split('--')[1];
-      console.log(descriptionID);
-
-      var inputChange = document.getElementById(`description--${descriptionID}`);
-
-      console.log(inputChange);
-
-      });
-    };
-
-
-  }//end carlotCars.changeDescription function
-
+  }//end carlotCars.changeDescription fucntion
 
 
   return carlotCars;
