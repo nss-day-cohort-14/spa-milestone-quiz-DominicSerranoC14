@@ -55,10 +55,6 @@ var CarLot = (function () {
           outputDiv.innerHTML = htmlstring;
         };//end second for loop
 
-
-        //call functions to add event listeners for cards
-        CarLot.activateEvents();
-
     }//end buildInventory method
 
 

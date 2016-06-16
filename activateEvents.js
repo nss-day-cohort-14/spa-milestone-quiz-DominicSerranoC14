@@ -8,6 +8,9 @@ var CarLot = (function(carlotCars) {
   //create a reference to the cards of the cars
   var cars = document.getElementsByClassName('cards');
 
+  //a reference to the user input text box
+  var userInput = document.getElementById('user-input');
+
 
   //create a function to add all event listeners to elements
   carlotCars.activateEvents = function() {
@@ -23,7 +26,46 @@ var CarLot = (function(carlotCars) {
 
   carlotCars.getCarsFromDom = function() {
     return cars;
-  }//end carlotCars.getCarFromDom function
+  },//end carlotCars.getCarFromDom function
+
+
+  carlotCars.userInputListener = function() {
+
+    userInput.addEventListener('click', carlotCars.expandBox);
+
+  },//end carlotCars.userInputListener function
+
+
+  carlotCars.expandBox = function() {
+
+    //creates a text area element
+    var userTextArea = document.createElement('textarea');
+    //defines width and hight of textarea and centers it
+    userTextArea.setAttribute("rows", 5);
+    userTextArea.setAttribute("cols", 60);
+    userTextArea.classList.add('centerTextarea');
+
+    //when the user types more than a certain number of character
+    //text input is replaced with a textarea
+    userInput.addEventListener('keyup', function() {
+      if ( userInput.value.length > 10 ) {
+
+        var userInputText = userInput.value;
+
+        userTextArea.innerText = userInputText;
+
+        userInput.parentNode.replaceChild(userTextArea, userInput);
+
+        userTextArea.setAttribute('autofocus', 'true');
+
+        //pass userTextArea.value to card edit if character
+        //limit is reached
+        
+      };
+    })//end event listener for keyup on character limit
+  }//end carlotCars.expandBox
+
+
 
   return carlotCars;
 

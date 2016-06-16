@@ -9,8 +9,13 @@
 }
 
 .nav-bar-el {
-  margin: 0 2rem;
+  margin: 0 12rem;
   height: 3rem;
+}
+
+#button {
+  position: fixed;
+  right: 0;
 }
 
 
@@ -35,4 +40,8 @@
 .highlight-card {
   border-width: thick;
   background: lightgray;
+}
+
+.centerTextarea {
+  margin: 0 12rem;
 }
