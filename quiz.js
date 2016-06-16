@@ -7,6 +7,8 @@ function populatePage () {
 
   CarLot.userInputListener();
 
+  CarLot.changeDescription();
+
 }
 
 // Load the inventory and send a callback function to be

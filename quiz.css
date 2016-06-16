@@ -6,6 +6,7 @@
   background: orange;
   padding: 2rem;
   margin-bottom: 2rem;
+  position: relative;
 }
 
 .nav-bar-el {
@@ -14,7 +15,7 @@
 }
 
 #button {
-  position: fixed;
+  position: absolute;
   right: 0;
 }
 
@@ -27,9 +28,13 @@
   width: 100%;
 }
 
+.cards p {
+  margin: 1rem;
+}
+
 .cards {
   border: 1px solid black;
-  margin: 1.5rem;
+  margin: 5rem 3rem;
   box-sizing: border-box;
   background: linear-gradient(135deg, black, white);
   color: white;
@@ -39,10 +44,15 @@
 /*******  ClassList styles ************/
 
 .highlight-card {
-  border-width: medium;
+  border-width: thick;
   background: lightgray;
+  color: yellow;
 }
 
 .centerTextarea {
   margin: 0 12rem;
+}
+
+.contanier {
+  padding-top: 10px;
 }

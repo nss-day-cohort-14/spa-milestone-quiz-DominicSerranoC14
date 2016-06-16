@@ -66,6 +66,28 @@ var CarLot = (function(carlotCars) {
   }//end carlotCars.expandBox
 
 
+  carlotCars.changeDescription = function() {
+
+    for ( var i = 0; i < cars.length; i++) {
+      cars[i].addEventListener('click', function() {
+
+      var description = event.currentTarget;
+      console.log("currentTarget",description);
+
+      var descriptionID = description.id.split('--')[1];
+      console.log(descriptionID);
+
+      var inputChange = document.getElementById(`description--${descriptionID}`);
+
+      console.log(inputChange);
+
+      });
+    };
+
+
+  }//end carlotCars.changeDescription function
+
+
 
   return carlotCars;
 

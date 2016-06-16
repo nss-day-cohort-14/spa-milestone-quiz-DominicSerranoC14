@@ -47,20 +47,35 @@ var CarLot = (function () {
           htmlstring += `<p>${list.year}</p>  `;
           htmlstring += `<p>${list.price}</p>  `;
           htmlstring += `<p id="color--${id}">${list.color}</p>`;
-          htmlstring += `<input type="checkbox" disabled>`;
-          htmlstring += `Purchased: ${list.purchased}</input>`;
-          htmlstring += `<p>${list.description}</p>`;
+          htmlstring += `<p><input type="checkbox"`;
+          htmlstring += CarLot.purchaseStatus(list.purchased);
+          htmlstring += ` </input></p>`;
+          htmlstring += `<p id="description--${id}">${list.description}</p>`;
           htmlstring += `</div>`;
           id++;
           outputDiv.innerHTML = htmlstring;
-        };//end second for loop
+        };//end for loop
 
         //set border color with function call
         CarLot.setBorder();
 
     },//end buildInventory method
 
+
     //function that sets the border of the car cards to the color that
+    purchaseStatus: function(status) {
+
+      //condition that determines if car is purchased
+      var currentStatus = ``;
+      if ( status === true ) {
+        currentStatus = `checked disabled> <s>Available</s>`;
+      } else {
+        currentStatus = `disabled> <em>Available</em>`;
+      }
+      return currentStatus;
+    },//end purchaseStatus function
+
+
     //is selected in the json file
     setBorder: function() {
 
