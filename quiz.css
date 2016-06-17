@@ -2,6 +2,10 @@
           Base Styles
 *******************************/
 
+.contanier {
+  padding-top: 10px;
+}
+
 .nav-bar {
   background: orange;
   padding: 2rem;
@@ -46,14 +50,9 @@
 
 .highlight-card {
   border-width: thick;
-  background: lightgray;
   color: yellow;
 }
 
 .centerTextarea {
   margin: 0 12rem;
-}
-
-.contanier {
-  padding-top: 10px;
 }

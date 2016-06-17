@@ -56,6 +56,7 @@ var CarLot = (function () {
           id++;
           outputDiv.innerHTML = htmlstring;
         };//end for loop
+
         //set border color with function call
         CarLot.setBorder();
 
@@ -89,7 +90,7 @@ var CarLot = (function () {
         carCards.style.borderColor = carColor;
       }//end for loop
     }//end of setBorder function
-    
+
 
 
   }//////////////////end return and initializing object
