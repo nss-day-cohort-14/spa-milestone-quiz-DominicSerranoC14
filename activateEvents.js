@@ -1,8 +1,3 @@
-// The second IIFE should augment the original one with
-// a function that creates all of the eventHandlers
-// that you need for the application. Name the function
-// activateEvents.
-
 var CarLot = (function(carlotCars) {
 
   //create a reference to the cards of the cars
@@ -52,6 +47,9 @@ var CarLot = (function(carlotCars) {
         //selects the description element with corresponding id number
         inputChange = document.getElementById(`description--${descriptionID}`);
 
+        //When each card element is selected, autofocus on the input
+        userInput.focus();
+
       });//end for event listeners
     };//end for loop
 
@@ -60,8 +58,6 @@ var CarLot = (function(carlotCars) {
 
   //create function to sync input to description target
   carlotCars.changeDescription = function() {
-
-    console.log(inputChange);
 
     userInput.addEventListener("keyup", function() {
       inputChange.innerHTML = userInput.value;
